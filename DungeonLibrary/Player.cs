@@ -123,7 +123,7 @@ namespace DungeonLibrary
                     description = "Large, oftentimes brutal creatures. Barely considered sentient amongst the other races, Half Giants are widely avoided.";
                     break;
                 case Race.Tiefling:
-                    description = "Often considered the most clear form of Evil amongst all of the sentient races. Judged prematurely by many, the true conscience of Tieflings are as wide and varied as any other race.";
+                    description = "Often considered the most clear form of Evil amongst all of the sentient races. Judged prematurely by many, \t\tthe true conscience of Tieflings are as wide and varied as any other race.";
                     break;
                 case Race.UndeadHuman:
                     description = "A grotesque warping of the natural order. Undead Humans no longer have the potential for growth, but in exchange they retain their mental senses beyond the grave.";
@@ -138,14 +138,15 @@ namespace DungeonLibrary
 
             return string.Format("\t\t\tPLAYER INFO\n xXxXx {0} xXxXx\n" +
                 "Life: {1} of {2}\nHit Chance: {3}%\n" +
-                "Weapon: \n{4}\nBlock: {5}\nDescription: {6}",
+                "Block: {4}\nDescription: {5}\n\n\nEquipped Weapon: {6}",
                 PlayerName,
                 Life,
                 MaxLife,
                 HitChance,
-                EquippedWeapon,
                 Block,
-                description);
+                description,
+                EquippedWeapon
+                );
 
         }
 

@@ -15,7 +15,6 @@ namespace DungeonLibrary
         private int _life;
         private int _maxLife;
         private MonsterBreed _monsterBreed;
-        private Weapon _equippedWeapon;
 
         public string MonsterName
         {
@@ -42,12 +41,6 @@ namespace DungeonLibrary
             get { return _monsterBreed; }
             set { _monsterBreed = value; }
         }
-        public Weapon EquippedWeapon
-        {
-            get { return _equippedWeapon; }
-            set { _equippedWeapon = value; }
-        }
-
         //Properties and Fields that require Custom "Business Rules"
         //properties and fields that require business rules should come AFTER properties/fields that use the default.
         public int Life
@@ -71,7 +64,7 @@ namespace DungeonLibrary
 
         //Fully Qualified Constructor, All properties are accounted for with Parameters.
 
-        public Monster(string monsterName, int block, int hitChance, int life, int maxLife, Race monsterBreed, Weapon equippedWeapon)
+        public Monster(string monsterName, int block, int hitChance, int life, int maxLife, MonsterBreed monsterBreed)
         {
             //ASSIGNMENT
             //Property = parameter;
@@ -82,7 +75,6 @@ namespace DungeonLibrary
             HitChance = hitChance;
             MaxLife = maxLife;
             MonsterBreed = MonsterBreed;
-            EquippedWeapon = equippedWeapon;
             Life = life; //Life depends on MaxLife, so MaxLife MUST be set first.
 
         }
@@ -131,67 +123,66 @@ namespace DungeonLibrary
                     description = "A small green slime, immune to most forms of physical and magical damge.";
                     break;
                 case MonsterBreed.Bat:
-                    description = "A small green slime, immune to most forms of physical and magical damge.";
+                    description = "A cave-dwelling creature with extremely sharp echolation abilities.";
                     break;
                 case MonsterBreed.Rat:
-                    description = "A small green slime, immune to most forms of physical and magical damge.";
+                    description = "Fairly weak on their own, but large masses have been known to bring down entire countries.";
                     break;
                 case MonsterBreed.Goblin:
-                    description = "A small green slime, immune to most forms of physical and magical damge.";
+                    description = "Small, disgusting creatures. Considered to be one of the few sentient monster races, but in all of the wrong ways.";
                     break;
                 case MonsterBreed.Kobold:
-                    description = "A small green slime, immune to most forms of physical and magical damge.";
+                    description = "Kobolds are known for their innate curiousity and deft trap making abilities.";
                     break;
                 case MonsterBreed.RedDragon:
-                    description = "A small green slime, immune to most forms of physical and magical damge.";
+                    description = "Amongst Dragons, the Red Dragon is considered the most hot-headed. You should probably start running.";
                     break;
                 case MonsterBreed.Crab:
-                    description = "A small green slime, immune to most forms of physical and magical damge.";
+                    description = "A small sea creature, more of a nuisance than a threat.";
                     break;
                 case MonsterBreed.Snake:
-                    description = "A small green slime, immune to most forms of physical and magical damge.";
+                    description = "Seen as a symbol for betrayal by more biblically inclined adventurers, snakes pack one heck of a bite.";
                     break;
                 case MonsterBreed.PhaseHound:
-                    description = "A small green slime, immune to most forms of physical and magical damge.";
+                    description = "Incredibly nimble beasts that exist both in this plane and another. Approach with caution.";
                     break;
                 case MonsterBreed.Spider:
-                    description = "A small green slime, immune to most forms of physical and magical damge.";
+                    description = "Not quite so itsy bitsy, these Spiders are known for devouring the more foolish adventurers.";
                     break;
                 case MonsterBreed.Zombie:
-                    description = "A small green slime, immune to most forms of physical and magical damge.";
+                    description = "A long dead humanoid, imbued with false life. These undead are without even the most basic of sentience, instead acting on a base desire to consume.";
                     break;
                 case MonsterBreed.Vampire:
-                    description = "A small green slime, immune to most forms of physical and magical damge.";
+                    description = "Widely considered the peak of undead form, Vampires are Suave, Intelligent, and Deadly.\n*Sparkles Not Included.";
                     break;
                 case MonsterBreed.Werewolf:
-                    description = "A small green slime, immune to most forms of physical and magical damge.";
+                    description = "Covered in fur, and embracing their more beastiel nature, these monsters started their lives as perfectly normal adventurers who caught a particularly nasty infection.\nKnown to occasionally visit London.";
                     break;
                 case MonsterBreed.Demon:
-                    description = "A small green slime, immune to most forms of physical and magical damge.";
+                    description = "Purveyors of dark magic and the bargaining of souls, Demons are not to be trusted or trifled with.";
                     break;
                 case MonsterBreed.Warlock:
-                    description = "A small green slime, immune to most forms of physical and magical damge.";
+                    description = "Corrupted by their desire to expand their magical power, these foolish mortals have made pacts with beings from beyond the mortal plane in exchange for greatness. They now seek mortal souls to sacrifice so that their own might be spared.";
                     break;
                 case MonsterBreed.Witch:
-                    description = "A small green slime, immune to most forms of physical and magical damge.";
+                    description = "Brewers of potions, poisons, and poultices, Witches are powerful alchemists in their own right. Green skin and warts not guaranteed.";
                     break;
                 case MonsterBreed.LurkingHorror:
-                    description = "A small green slime, immune to most forms of physical and magical damge.";
+                    description = "A tentacled mass of teeth, Lurking Horrors are known to ambush their prey in the dark.";
                     break;
                 case MonsterBreed.Beholder:
-                    description = "A small green slime, immune to most forms of physical and magical damge.";
+                    description = "Despite what they may say, beauty has nothing to do with it. A powerful beast of the Eldritch Plane, Beholders have many abilities to control or destroy adventurers who are foolish enough to challenge them.";
                     break;
 
             }
 
             return string.Format("\t\t\tMONSTER INFO\n xXxXx {0} xXxXx\n" +
                 "Life: {1} of {2}\nHit Chance: {3}%\n" +
-                "Weapon: {4}\nBlock: {5}\nDescription: {6}",
+                "Block: {4}\nDescription: {5}",
                 MonsterName,
                 Life,
                 MaxLife,
                 HitChance,
-                EquippedWeapon.Name,
                 Block,
                 description);
 
